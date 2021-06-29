@@ -26,22 +26,22 @@ jobs:
       uses: actions/checkout@master
 
       # Runs a single command using the runners shell
-      - name: Set up Node.js
-        uses: actions/setup-node@master
-        with:
-          node-version:14.x
+    - name: Set up Node.js
+      uses: actions/setup-node@master
+      with:
+        node-version:14.x
 
-      - name: Install dependencies
-        run: yarn install
+    - name: Install dependencies
+      run: yarn install
 
-      - name: Build page
-        run: yarn build
-        env:
-          NODE_ENV: production
+    - name: Build page
+      run: yarn build
+      env:
+        NODE_ENV: production
 
-      # Runs a set of commands using the runners shell
-      - name: Deploy to gh-pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+    # Runs a set of commands using the runners shell
+    - name: Deploy to gh-pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./dist
